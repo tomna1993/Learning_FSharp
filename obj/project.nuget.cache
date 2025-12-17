@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "3AeXRSSRduk=",
+  "success": true,
+  "projectFilePath": "/Users/toman/Desktop/FSharp_projects/Learning/Learning/Learning.fsproj",
+  "expectedPackageFiles": [
+    "/Users/toman/.nuget/packages/fsharp.core/10.0.100/fsharp.core.10.0.100.nupkg.sha512"
+  ],
+  "logs": []
+}

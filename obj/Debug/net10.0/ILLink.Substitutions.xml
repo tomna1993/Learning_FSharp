@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<linker>
+  <assembly fullname="Learning">
+    <resource name="FSharpSignatureData.Learning" action="remove"></resource>
+    <resource name="FSharpSignatureCompressedData.Learning" action="remove"></resource>
+    <resource name="FSharpSignatureDataB.Learning" action="remove"></resource>
+    <resource name="FSharpSignatureCompressedDataB.Learning" action="remove"></resource>
+    <resource name="FSharpOptimizationData.Learning" action="remove"></resource>
+    <resource name="FSharpOptimizationCompressedData.Learning" action="remove"></resource>
+    <resource name="FSharpOptimizationDataB.Learning" action="remove"></resource>
+    <resource name="FSharpOptimizationCompressedDataB.Learning" action="remove"></resource>
+    <resource name="FSharpOptimizationInfo.Learning" action="remove"></resource>
+    <resource name="FSharpSignatureInfo.Learning" action="remove"></resource>
+  </assembly>
+</linker>

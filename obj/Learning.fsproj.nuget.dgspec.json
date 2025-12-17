@@ -1,0 +1,71 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/toman/Desktop/FSharp_projects/Learning/Learning/Learning.fsproj": {}
+  },
+  "projects": {
+    "/Users/toman/Desktop/FSharp_projects/Learning/Learning/Learning.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/toman/Desktop/FSharp_projects/Learning/Learning/Learning.fsproj",
+        "projectName": "Learning",
+        "projectPath": "/Users/toman/Desktop/FSharp_projects/Learning/Learning/Learning.fsproj",
+        "packagesPath": "/Users/toman/.nuget/packages/",
+        "outputPath": "/Users/toman/Desktop/FSharp_projects/Learning/Learning/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/toman/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net10.0"
+        ],
+        "sources": {
+          "/Users/toman/.dotnet/sdk/10.0.100/FSharp/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net10.0": {
+            "targetAlias": "net10.0",
+            "projectReferences": {}
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net10.0": {
+          "targetAlias": "net10.0",
+          "dependencies": {
+            "FSharp.Core": {
+              "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[10.0.100, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/Users/toman/.dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
