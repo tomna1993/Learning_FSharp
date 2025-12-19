@@ -8,7 +8,6 @@
 //     elif b > a && b > c then b
 //     else c
 //     
-open System.Linq
 
 let celsiusToFahrenheit celsius =
     (celsius * 9.0/5.0) + 32.0
@@ -27,13 +26,13 @@ let fahrenheitToCelsius fahrenheit =
 //
 // printfn $"{max3 3 2 1}"
 //
-// let celsius = -10
-// let fahrenheit = celsiusToFahrenheit celsius
-// printfn $"{celsius} celsius is {fahrenheit} fahrenheit"
+// let Celsius = -10
+// let Fahrenheit = celsiusToFahrenheit celsius
+// printfn $"{Celsius} Celsius is {Fahrenheit} Fahrenheit"
 //
-// let fahrenheit2 = -10
-// let celsius2 = fahrenheitToCelsius fahrenheit2
-// printfn $"{fahrenheit2} fahrenheit is {celsius2} celsius"
+// let Fahrenheit2 = -10
+// let Celsius2 = fahrenheitToCelsius fahrenheit2
+// printfn $"{Fahrenheit2} Fahrenheit is {Celsius2} Celsius"
 //
 // printf "Hello, please write your name: "
 // let name : string = getName ()
@@ -150,7 +149,7 @@ printfn $"Product of list {numbersList} = {product numbersList}"
 let number: int = 6
 printfn $"Does list {numbersList} contain {number}? {contains number numbersList}"
 
-printfn "There are %d even number in the list %A" (countEvens numbersList) numbersList
+printfn $"There are {countEvens numbersList} even number in the list {numbersList}"
 
 
 
@@ -172,7 +171,7 @@ let rec filter p list =
         else filter p xs
 
 let evenList = filter isEven numbersList2
-printfn "Old list is: %A, even numbers are: %A" numbersList2 evenList
+printfn $"Old list is: {numbersList2}, even numbers are: {evenList}"
 
 let multiplyWithTwo n = n * 2
 
@@ -183,49 +182,49 @@ let rec map f list =
         (f x) :: map f xs
         
 let multipliedByTwo = map multiplyWithTwo numbersList2
-printfn "Old list is: %A, even numbers are: %A" numbersList2 multipliedByTwo
+printfn $"Old list is: %A{numbersList2}, even numbers are: %A{multipliedByTwo}"
 
 let doubleList = map (fun x -> x * 2) numbersList
-printfn "Old list is: %A, even numbers are: %A" numbersList doubleList
+printfn $"Old list is: %A{numbersList}, even numbers are: %A{doubleList}"
 
-let strings = ["hello"; "tomas"; "kiskutya"; "aneszteziologus"]
+let strings = ["hello"; "tomas"; "small puppy"; "hard as a rock"]
 let stringLengths = map String.length strings
-printfn "String list is: %A, string lengths are: %A" strings stringLengths
+printfn $"String list is: %A{strings}, string lengths are: %A{stringLengths}"
 
 let keepOdds list =
     list
     |> filter (fun x -> not (isEven x))
 
-printfn "Odd numbers: %A" (keepOdds numbersList2)
+printfn $"Odd numbers: %A{keepOdds numbersList2}"
 
 let sumOfSquares list =
     list
     |> map (fun x -> x * x)
     |> sum
-    
-printfn "Sum of squares of list %A = %d" numbersList (sumOfSquares numbersList)
+
+printfn $"Sum of squares of list %A{numbersList} = %d{sumOfSquares numbersList}"
 
 
 let doubleEvenNumbers list =
     list
     |> filter isEven
     |> map (fun x -> x * 2)
-    
-printfn "Even numbers are doubled: %A" (doubleEvenNumbers numbersList2)
+
+printfn $"Even numbers are doubled: %A{doubleEvenNumbers numbersList2}"
 
 
 let doubleAll (list:int list) : int list =
     list |> List.map (fun x -> x * 2)
 
-printfn "Double list elements: %A" (doubleAll numbersList2)
+printfn $"Double list elements: %A{doubleAll numbersList2}"
 
 
 let longStringLengths list =
     list
     |> map String.length
     |> filter (fun x -> x > 10)
-    
-printfn "Too long strings: %A" (longStringLengths strings)
+
+printfn $"Too long strings: %A{longStringLengths strings}"
 
 
 let nonNegativeCelsiusToFahrenheit (temps:float list) : float list =
@@ -239,7 +238,7 @@ let nonNegativeCelsiusToFahrenheit (temps:float list) : float list =
 
 let celsius = [-10.0; 0.0; 10.0; 25.0]
 
-printfn "Result of conversion: %A" (nonNegativeCelsiusToFahrenheit celsius)
+printfn $"Result of conversion: %A{nonNegativeCelsiusToFahrenheit celsius}"
 
 let listLengthFold list =
     list |> List.fold (fun acc _ -> acc + 1) 0
@@ -346,24 +345,24 @@ let isGreaterThanFive n = n > 5
 let numbers2 = [1; 2; 3; 4]
 let result5 = findElementIndex isGreaterThanFive numbers
 match result5 with
-| Some x -> printfn "Index of grater then 5 number in list is: %i" x
+| Some x -> printfn $"Index of grater then 5 number in list is: %i{x}"
 | None -> printfn "There is no number in the list greater then 5"
 
 
 let strings2 = ["apple"; "banana"; "cherry"; "date"]
 
 let capitalizeFirstLetter (s :string) :string =
-    let firstLetter :string = s.[0].ToString().ToUpper()
+    let firstLetter :string = s[0].ToString().ToUpper()
     let restLetters = s.Substring(1)
     firstLetter + restLetters
         
 let capitalizeList (list :string list) :string list= 
     list
-    |> List.map (capitalizeFirstLetter)
-    
-printfn "%A" (capitalizeList strings2)
+    |> List.map capitalizeFirstLetter
 
-     
+printfn $"%A{capitalizeList strings2}"
+
+
 // Example: capitalizeList strings should return ["Apple"; "Banana"; "Cherry"; "Date"]
     
     
@@ -381,9 +380,7 @@ let partitionList1 p list =
 let result6 = partitionList1 isEven numbersList2
     
 match result6 with
-| (partitioned, wrong) -> printfn "Partitioned are: %A, wrongs are: %A" partitioned wrong
-
-
+| partitioned, wrong -> printfn $"Partitioned are: %A{partitioned}, wrongs are: %A{wrong}"
 
 
 let partitionList2 p list =
@@ -394,8 +391,142 @@ let partitionList2 p list =
     
 let result7 = partitionList2 isEven numbersList2
 match result7 with
-| (partitioned, wrong) -> printfn "Partitioned are: %A, wrongs are: %A" partitioned wrong
+| partitioned, wrong -> printfn $"Partitioned are: {partitioned}, wrongs are: {wrong}"
 
 let result8 = List.partition isEven numbersList2
 match result8 with
-| (partitioned, wrong) -> printfn "Partitioned are: %A, wrongs are: %A" partitioned wrong
+| partitioned, wrong -> printfn $"Partitioned are: {partitioned}, wrongs are: {wrong}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+type ShapeRectangle = {
+    a: float
+    b: float
+}
+
+type ShapeCircle = {
+    r: float
+}
+
+type ShapeSquare = {
+    a: float
+}
+    
+type Shape =
+    | Circle of ShapeCircle
+    | Rectangle of ShapeRectangle
+    | Square of ShapeSquare
+    
+let shapeCircle = Circle { r = 3 }
+let shapeRect = Rectangle { a = 5; b = 3}
+let shapeSquare = Square { a = 5 }
+
+
+let calculateShape shapeToCalc =
+    match shapeToCalc with
+    | Circle radius -> 3.14 * radius.r * radius.r
+    | Rectangle sides -> sides.a * sides.b
+    | Square side -> side.a * side.a
+
+
+printfn $"Area of a circle with 5.6 radius is: %f{calculateShape shapeCircle}"
+printfn $"Area of a rectangle with a=3 and b=5 is: %f{calculateShape shapeRect}"
+printfn $"Area of a square with a=5 is: %f{calculateShape shapeSquare}"
+
+
+type Employee = {
+    Name: string
+    Salary: float
+    IsManager: bool
+}
+
+
+let alice = { Name = "Alice"; Salary = 50_000; IsManager = false }
+
+let bossAlice = { alice with Salary = 100_000; IsManager = true }
+
+printfn $"{alice.Name}, {alice.Salary}, {alice.IsManager}"
+printfn $"{bossAlice.Name}, {bossAlice.Salary}, {bossAlice.IsManager}"
+
+
+
+let employees = [
+    { Name = "Alice"; Salary = 30_000; IsManager = false }
+    { Name = "Tomas"; Salary = 80_000; IsManager = false }
+    { Name = "Viktor"; Salary = 120_000; IsManager = true }
+    { Name = "Viktoria"; Salary = 60_000; IsManager = false }
+    { Name = "Peter"; Salary = 10_000; IsManager = false }
+]
+
+let isBoss employee = employee.IsManager 
+
+employees
+|> List.filter (fun e -> e.IsManager = true)
+|> List.map _.Name
+|> List.iter (fun name -> printfn $"{name}")
+    
+employees
+|> List.filter (fun e -> e.IsManager = false)
+|> List.map _.Name
+|> List.iter (fun name -> printfn $"{name}")
+
+let totalCost =
+    employees
+    |> List.filter (fun e -> e.IsManager = false)
+    |> List.map _.Salary
+    |> List.fold (fun sum elem -> sum + elem) 0.0
+
+printfn $"Total cost = {totalCost / 12.0}"
+
+let employeeList =
+    employees
+    |> List.tryFind (fun e -> e.Name = "Viktor")
+
+match employeeList with
+| Some e -> printfn $"Name {e.Name} is found" 
+| None -> printfn $"Name is not found" 
+
+
+
+
+// Partial functions - currying
+
+let logMessage level message =
+    printfn $"[{level}] {message}"
+    
+let logError=
+    logMessage "Error"
+    
+let logWarning=
+    logMessage "Warning"
+    
+logError "Something broke!"
+logWarning "Watch out!"
+
+// Validation
+
+let validateUser name age =
+    if name = "" then Error "Name cannot be empty"
+    elif age < 18 then Error "Must be 18 or older"
+    else Ok "User created"
+
+let printResult result =
+    match result with
+    | Ok message -> printfn $"{message}"
+    | Error message -> printfn $"{message}"
+    
+validateUser "Alice" 32 |> printResult
+validateUser "" 23 |> printResult
+validateUser "Tomas" 2 |> printResult
+validateUser "Viktor" 16 |> printResult
+

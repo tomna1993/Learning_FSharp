@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "3AeXRSSRduk=",
+  "dgSpecHash": "cfWgMem/EMM=",
   "success": true,
-  "projectFilePath": "/Users/toman/Desktop/FSharp_projects/Learning/Learning/Learning.fsproj",
+  "projectFilePath": "C:\\Users\\tomin\\RiderProjects\\Learning_FSharp\\Learning.fsproj",
   "expectedPackageFiles": [
-    "/Users/toman/.nuget/packages/fsharp.core/10.0.100/fsharp.core.10.0.100.nupkg.sha512"
+    "C:\\Users\\tomin\\.nuget\\packages\\fsharp.core\\10.0.101\\fsharp.core.10.0.101.nupkg.sha512"
   ],
   "logs": []
 }
